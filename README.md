@@ -6,7 +6,7 @@ To use the compiler, navigate to the root directory and type the following comma
 The file 'test2.ocr' will be translated and save in a file called 'test2.py'
 
 There is much to do such as
-  - implement classes
+  - implement classes (they're kind of broken)
   - fix nested do untils
   - add a gui
   - make it into a package
