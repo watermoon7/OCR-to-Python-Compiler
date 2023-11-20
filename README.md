@@ -5,7 +5,7 @@ Translates OCR Reference Language into Python
 ## How to use
 To use the compiler, navigate to the root directory and type the following command
 
-      python ocrcompiler/testing.py
+    python ocrcompiler/testing.py
   
 The file 'test2.ocr' will be translated and save in a file called 'test2.py'
 
