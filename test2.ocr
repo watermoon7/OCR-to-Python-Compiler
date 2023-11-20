@@ -112,13 +112,63 @@ switch entry:
         print("well well well, looks like you need a beer")
 endswitch
 
-// CURRENTLY broken for nested do statements
+
 p = 0
 do
+    do
+        print("Hello world!")
+        p = p + 1
+        b = 0
+        do
+            print("Goodbye world!")
+            b = b + 1
+            do
+                print("Hello world!")
+                p = p + 1
+                b = 0
+                do
+                    print("Goodbye world!")
+                    b = b + 1
+                until b == 3
+            until p == 10
+        until b == 3
+    until p == 10
     print("Hello world!")
     p = p + 1
     b = 0
+    do
+        print("Goodbye world!")
+        b = b + 1
+    until b == 3
 until p == 10
 
 
 print("Hello world")
+
+a = 5
+c = a.b()
+if -c.val() + a.val == 5 then
+    print("It worked")
+else then
+    print("It failed")
+endif
+
+class h
+    public age = 1 + a
+endclass
+
+class Dog inherits h
+    print("Hello there")
+    public procedure new()
+        print("nothing to see here...")
+    endprocedure
+    public age = 5
+    class CAT
+        print("cat")
+        public procedure meow(num)
+            for i = 1 to num
+                print("Meow.")
+            next i
+        endprocedure
+    endclass
+endclass

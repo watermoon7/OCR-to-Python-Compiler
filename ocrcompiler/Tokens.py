@@ -20,6 +20,9 @@ class Token:
     def generate(self, nullify = False):
         generator.generate(self)
 
+    def __repr__(self):
+        return str(self.__class__.__name__)
+
 # Symbols
 class OPENPAR(Token):
     def __init__(self, nullify = False):
@@ -64,11 +67,11 @@ class COMMA(Token):
 # Operators
 class PLUS(Token):
     def __init__(self, nullify = False):
-        self.keyword = "" if nullify else " + "
+        self.keyword = "" if nullify else "+"
 
 class MINUS(Token):
     def __init__(self, nullify = False):
-        self.keyword = "" if nullify else " - "
+        self.keyword = "" if nullify else "-"
 
 class ASTERISK(Token):
     def __init__(self, nullify = False):
@@ -210,7 +213,7 @@ class CLASS(Token):
 
 class INHERITS(Token):
     def __init__(self, nullify = False):
-        self.keyword = "" if nullify else " inherits "
+        self.keyword = "" if nullify else ""
 
 class PUBLIC(Token):
     def __init__(self, nullify = False):

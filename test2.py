@@ -74,11 +74,11 @@ for i in range(1, 10):
 x = 1
 while x < 10:
     print(x)
-    x = x + 1
+    x = x+1
     y = 1
     while y < 1:
         print(x * y)
-        y = y + 1
+        y = y+1
     
 
 
@@ -91,7 +91,7 @@ def weird(x, y):
         two()
     
     one()
-    return x + y
+    return x+y
 
 
 entry = input("Hello there how are you today?")
@@ -112,11 +112,64 @@ match entry:
         print("well well well, looks like you need a beer")
 
 
+
 p = 0
 while not (p == 10):
+    while not (p == 10):
+        print("Hello world!")
+        p = p+1
+        b = 0
+        while not (b == 3):
+            print("Goodbye world!")
+            b = b+1
+            while not (p == 10):
+                print("Hello world!")
+                p = p+1
+                b = 0
+                while not (b == 3):
+                    print("Goodbye world!")
+                    b = b+1
+                
+            
+        
+    
     print("Hello world!")
-    p = p + 1
+    p = p+1
     b = 0
+    while not (b == 3):
+        print("Goodbye world!")
+        b = b+1
+    
+
 
 
 print("Hello world")
+
+a = 5
+c = a.b()
+if -c.val()+a.val == 5:
+    print("It worked")
+else:
+    print("It failed")
+
+
+class h:
+    age = 1+a
+
+
+class Dog(h):
+    print("Hello there")
+    def __init__(self):
+        print("nothing to see here...")
+    
+    age = 5
+    class CAT:
+        print("cat")
+        def meow(self, num):
+            for i in range(1, num):
+                print("Meow.")
+            
+        
+    
+
+
