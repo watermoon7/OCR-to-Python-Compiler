@@ -1,7 +1,7 @@
 import sys
 from Tokens import *
 
-
+print("test")
 def split_list_by_element(lst, element):
     result = []
     current_sublist = []
