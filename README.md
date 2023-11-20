@@ -14,6 +14,7 @@ The parser affirms that each line is in accordance to the syntax rules
 During this process, the method 'affirm_grammar' is called which
 - checks the current token is of the expected type
 - generates the code for the token and adds the translated code to a string
+
 Finally the translated code is written to a file
 
 
