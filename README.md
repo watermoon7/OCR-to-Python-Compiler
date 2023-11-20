@@ -12,7 +12,7 @@ The file 'test2.ocr' will be translated and save in a file called 'test2.py'
 
 ## How it works
 The lexer tokenises the code and appends each token to a token list. 
-The parser affirms that each line is in accordance to the syntax rules. 
+The parser then affirms that each line is in accordance to the syntax rules by incremetning through the token list line by line. 
 During this process, the method 'affirm_grammar' is called which:
 - checks the current token is of the expected type
 - generates the code for the token and adds the translated code to a string
