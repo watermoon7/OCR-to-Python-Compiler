@@ -11,7 +11,7 @@ This translates the code in the file test2.ocr and saves the result in test2.py 
 Alternatively, type 
     
     chmod +x '/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
-    alias ocr = '/workspaces/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
+    alias ocr = '/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
 
 Now you can use ocr as a command. For example:
 
