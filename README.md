@@ -8,6 +8,15 @@ Navigate to the root directory. Then type
 
 This translates the code in the file test2.ocr and saves the result in test2.py if there are no errors.
 
+Alternatively, type 
+    
+    chmod +x '/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
+    alias ocr = '/workspaces/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
+
+Now you can use ocr as a command. For example:
+
+    ocr input_code.ocr
+
 ## How it works
 ### Lexer
 The Lexer increments through the inputted code character by character and classifies groups of characters into tokens.
