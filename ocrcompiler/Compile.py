@@ -7,7 +7,6 @@ from Generator import *
 def compile_file(source: str):
     with open(source, "r") as file:
         source_code = file.read()
-    #print("SOURCE CODE START:\n" + source_code + "\nSOURCE CODE END.")
 
     lexer = Lexer.Lexer(source_code)
     parser = Parser.Parser(lexer.Lex(), generator)
@@ -18,8 +17,8 @@ def compile_file(source: str):
     print("Finished compilation")
 
 def main():
-    if len(sys.argv) != 2:
-        input_path = "test.ocr"
+    if len(sys.argv) == 1:
+        sys.exit("No file path passed as an argument")
     else:
         input_path = sys.argv[1]
 
@@ -34,4 +33,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #compile_file("test.ocr")
