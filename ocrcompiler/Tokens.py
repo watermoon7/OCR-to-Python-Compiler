@@ -1,20 +1,4 @@
-class Generator:
-    def __init__(self, ):
-        self.code = ""
-
-    def generate(self, token):
-        if isinstance(token, str):
-            self.code += token
-        elif isinstance(token, type):
-            self.code += token().keyword
-        else:
-            self.code += token.keyword
-
-    def write(self, output_path):
-        with open(output_path[:-3] + "py", 'w') as outputFile:
-            outputFile.write(self.code)
-
-generator = Generator()
+from Generator import *
 
 class Token:
     def generate(self, nullify = False):
@@ -294,3 +278,38 @@ class COMMENT(Token):
 class EOF(Token):
     def __init__(self, nullify = False):
         self.keyword = ""
+
+
+def check_if_keyword(text):
+    if text == 'if': return IF
+    elif text == 'elseif': return ELIF
+    elif text == 'else': return ELSE
+    elif text == 'then': return THEN
+    elif text == 'endif': return ENDIF
+    elif text == 'while': return WHILE
+    elif text == 'endwhile': return ENDWHILE
+    elif text == 'for': return FOR
+    elif text == 'to': return TO
+    elif text == 'next': return NEXT
+    elif text == 'do': return DO
+    elif text == 'until': return UNTIL
+    elif text == 'switch': return SWITCH
+    elif text == 'endswitch': return ENDSWITCH
+    elif text == 'case': return CASE
+    elif text == 'default': return DEFAULT
+    elif text == 'function': return FUNCTION
+    elif text == 'endfunction': return ENDFUNCTION
+    elif text == 'procedure': return PROCEDURE
+    elif text == 'endprocedure': return ENDPROCEDURE
+    elif text == 'return': return RETURN
+    elif text == 'class': return CLASS
+    elif text == 'inherits': return INHERITS
+    elif text == 'public': return PUBLIC
+    elif text == 'private': return PRIVATE
+    elif text == 'super': return SUPER
+    elif text == 'endclass': return ENDCLASS
+    elif text == 'new': return NEW
+    elif text == 'AND': return AND
+    elif text == 'OR': return OR
+    elif text == 'NOT': return NOT
+    else: return None
