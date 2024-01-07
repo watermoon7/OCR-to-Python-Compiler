@@ -116,7 +116,7 @@ class Parser:
             self.generate(", ")
             self.affirm_grammar(TO, nullify=True)
             self.affirm_grammar(INT, local_symbols = local_symbols)
-            self.generate("):")
+            self.generate(" + 1):")
             local_symbols.add(iterator)
             self.affirm_grammar(NL)
 
@@ -230,7 +230,8 @@ class Parser:
             self.affirm_grammar(SUPER, PERIOD, nullify = True)
             self.generate("super().")
             if isinstance(self.tok, NEW):
-                self.generate("__init__")
+                self.tok.keyword = "__init__"
+                self.affirm_grammar(NEW)
                 self.call(local_symbols)
             else:
                 self.affirm_grammar(IDENT)
@@ -239,14 +240,17 @@ class Parser:
         elif isinstance(self.tok, IDENT):
             while isinstance(self.token_list[0], PERIOD):
                 self.affirm_grammar(IDENT, PERIOD)
-
+        
             if isinstance(self.token_list[0], OPENPAR):
                 self.affirm_grammar(IDENT)
                 self.call(local_symbols)
             else:
                 local_symbols.add(self.tok.keyword)
-                self.affirm_grammar(IDENT, EQ)
-                self.expression(local_symbols)
+                if isinstance(self.token_list[0], EQ):
+                    self.affirm_grammar(IDENT, EQ)
+                    self.expression(local_symbols)
+                else:
+                    self.affirm_grammar(IDENT)
             self.affirm_grammar(NL)
         elif isinstance(self.tok, (PUBLIC, PRIVATE)):
             self.affirm_grammar(PUBLIC if isinstance(self.tok, PUBLIC) else PRIVATE)
@@ -266,14 +270,14 @@ class Parser:
                 self.token_list.insert(0, IDENT("self"))
                 if isinstance(self.token_list[1], IDENT):
                     self.token_list.insert(1, COMMA())
+                
                 temp_local_symbols = self.call(local_symbols)
                 self.generate(":")
                 self.affirm_grammar(NL)
 
                 temp_local_symbols = self.statement(local_symbols | temp_local_symbols, extra_tabs=extra_tabs + 1)
-                while index_token_sublist([self.tok] + self.token_list, (*[TAB for _ in range(max(0, extra_tabs))],
-                                                                         ENDFUNCTION if isinstance(temp,
-                                                                                                   FUNCTION) else ENDPROCEDURE)) != 0:
+                while index_token_sublist([self.tok] + self.token_list,
+                                          (*[TAB for _ in range(max(0, extra_tabs))], ENDFUNCTION if isinstance(temp, FUNCTION) else ENDPROCEDURE)) != 0:
                     temp_local_symbols = self.statement(local_symbols | temp_local_symbols, extra_tabs=extra_tabs + 1)
 
                 self.affirm_tabs(extra_tabs)
@@ -286,7 +290,7 @@ class Parser:
             self.affirm_grammar(NL)
         else:
             sys.exit("Unrecognised Token: " + str(type(self.tok)) + " at line " + str(self.line))
-
+ 
         return local_symbols
 
     def comparison(self, local_symbols):
@@ -298,7 +302,7 @@ class Parser:
             if isinstance(self.tok, (EQEQ, GT, GTEQ, LT, LTEQ, NOTEQ)):
                 self.affirm_grammar(type(self.tok))
             else:
-                sys.exit("Must include a comparison operator at line " + str(self.line))
+                return 
             self.expression(local_symbols)
 
         single()
@@ -326,6 +330,7 @@ class Parser:
         while isinstance(self.tok, (ASTERISK, SLASH, DIV, MOD)):
             self.affirm_grammar(type(self.tok))
             self.unary(local_symbols)
+
 
     def unary(self, local_symbols):
         if isinstance(self.tok, (PLUS, MINUS)):

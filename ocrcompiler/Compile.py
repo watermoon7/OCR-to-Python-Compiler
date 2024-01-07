@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/Users/will/Desktop/compiler/venv/bin/python
 import sys, os, glob
 import Lexer
 import Parser

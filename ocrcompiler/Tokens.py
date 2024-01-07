@@ -216,19 +216,19 @@ class ENDCLASS(Token):
         self.keyword = ""
 
 class NEW(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = ""
 
 class AND(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else " and "
 
 class OR(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else " or "
 
 class NOT(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else " not "
 
 # Other ---
@@ -237,19 +237,19 @@ class TAB(Token):
         self.keyword = "" if nullify else "    "
 
 class INT(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else text
 
 class FLOAT(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else text
 
 class STR(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else "\"" + text + "\""
 
 class BOOL(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else text
 
 class IDENT(Token):
@@ -259,20 +259,20 @@ class IDENT(Token):
     # - Object
     # - Reference
 
-    def __init__(self, text = None, type_ = None, nullify = False):
+    def __init__(self, text = "", type_ = None, nullify = False):
         self.type = type_
         self.keyword = "" if nullify else text
 
 class COMPARISON(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else text
 
 class EXPRESSION(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else text
 
 class COMMENT(Token):
-    def __init__(self, text = None, nullify = False):
+    def __init__(self, text = "", nullify = False):
         self.keyword = "" if nullify else "# " + text
 
 class EOF(Token):

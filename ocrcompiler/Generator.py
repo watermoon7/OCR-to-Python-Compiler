@@ -15,4 +15,8 @@ class Generator:
             outputFile.write(self.code)
         print("Successfully finished generator.")
 
+    def clear(self):
+        self.code = None
+
+
 generator = Generator()

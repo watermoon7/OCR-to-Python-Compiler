@@ -1,0 +1,3 @@
+import Compile
+
+Compile.main()
