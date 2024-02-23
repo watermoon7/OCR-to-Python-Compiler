@@ -2,20 +2,24 @@
 This is a compiler which translates OCR reference language to Python. (OCR reference language is a type of pseudocode)
 
 ## How to use it
-Navigate to the root directory. Then type
+In a terminal or command prompt, navigate to the root directory. 
+To compile a file type:
 
-    python ocrcompiler ocrcompiler/testing.py
+    python ocrcompiler input_file_path.ocr
+Or
 
-This translates the code in the file test2.ocr and saves the result in test2.py if there are no errors.
+    python ocrcompiler input_file_path.txt
 
-Alternatively, type 
+This translates the inputted code and saves the output to input_file_path.py (if there are no errors).
+
+An alternative method: 
     
     chmod +x '/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
     alias ocr = '/OCR-to-Python-Compiler/ocrcompiler/Compile.py'
 
 Now you can use ocr as a command. For example:
 
-    ocr input_code.ocr
+    ocr input_file_path.ocr
 
 ## How it works
 ### Lexer
