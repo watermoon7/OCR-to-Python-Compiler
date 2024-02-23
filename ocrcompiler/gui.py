@@ -87,7 +87,6 @@ class App(customtkinter.CTk):
 
     def execute(self):
         code = self.shell.shell_input.get("0.0", customtkinter.END)[:-1]
-
         if code != '':
             lexer = Lexer.Lexer(code)
             tokens = lexer.Lex()

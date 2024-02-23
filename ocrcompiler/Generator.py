@@ -13,7 +13,6 @@ class Generator:
     def write(self, output_path):
         with open(output_path, 'w') as outputFile:
             outputFile.write(self.code)
-        print("Successfully finished generator.")
 
     def clear(self):
         self.code = None

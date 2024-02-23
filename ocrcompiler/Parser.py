@@ -360,4 +360,3 @@ class Parser:
         while not isinstance(self.tok, EOF):
             self.global_symbols |= self.statement()
 
-        print("Successfully finished compiling.")

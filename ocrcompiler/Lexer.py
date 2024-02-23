@@ -85,7 +85,7 @@ class Lexer:
                 token = NOTEQ()
             else:
                 sys.exit("Expected !=, got !" + self.peek())
-        elif self.cur_char == '\n':
+        elif self.cur_char in ['\n', ";"]:
             token = NL()
         elif self.cur_char == '\t':
             token = TAB()
@@ -149,5 +149,4 @@ class Lexer:
         while not isinstance(token, EOF):
             token = self.get_token()
             token_list.append(token)
-        print("Successfully finished lexing.")
         return token_list
