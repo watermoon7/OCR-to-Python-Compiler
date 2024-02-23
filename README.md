@@ -31,16 +31,3 @@ During parsing, the function 'affirm_grammar' is called. This does two things
 - generates the translated token and adds it to the output string
 ### Generator
 After parsing is complete, the Generator saves the translated code to a file.
-
-## TODO
-- Add GUI
-- Add arrays, byRef, byVal (and possibly method checking)
-- Make the project a package
-- Allow passing a file/ directory as an argument when running the program (already done I just need to add it into this version)
-- Fix the horrendous number of errors
-- Make the code nicer
-- Implement better ways of dealing with indentation
-- Write tests
-- Write documentation
-- Project writeup
-- Crustify the code
