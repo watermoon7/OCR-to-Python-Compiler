@@ -4,7 +4,7 @@ This is a compiler which translates OCR reference language to Python. (OCR refer
 ## How to use it
 Navigate to the root directory. Then type
 
-    python ocrcompiler/testing.py
+    python ocrcompiler ocrcompiler/testing.py
 
 This translates the code in the file test2.ocr and saves the result in test2.py if there are no errors.
 
